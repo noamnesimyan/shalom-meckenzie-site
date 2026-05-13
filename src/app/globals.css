@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────────────────────── */
+@theme {
+  --color-ink:      #0B1733;
+  --color-ivory:    #F5EFE2;
+  --color-sand:     #E8DFC9;
+  --color-gold:     #C4A661;
+  --color-gold-hi:  #D9BE7B;
+  --color-sea:      #36647A;
+}
+
+@theme inline {
+  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-body:    var(--font-inter), Inter, system-ui, sans-serif;
+  --font-accent:  var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #0B1733;
+  color: #F5EFE2;
+  overflow-x: hidden;
+}
+
+/* ─── Focus rings ────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #C4A661;
+  outline-offset: 3px;
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ─── Scroll cue animation ───────────────────────────────────────────── */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+.scroll-bounce { animation: scrollBounce 2s ease-in-out infinite; }
+
+/* ─── Ken-Burns hero ─────────────────────────────────────────────────── */
+@keyframes kenBurns {
+  0%   { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+.ken-burns {
+  animation: kenBurns 12s ease-out forwards;
+}
