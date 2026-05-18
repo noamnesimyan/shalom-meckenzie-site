@@ -3,7 +3,7 @@ export type ScheduleEvent = {
   period: string;
   title: string;
   description: string;
-  dressCode?: { label: string; subtitle: string; images?: string[] };
+  dressCode?: { label: string; subtitle?: string; images?: string[] };
 };
 
 export type ScheduleDay = {
@@ -17,26 +17,32 @@ export type ScheduleDay = {
 export const scheduleDays: ScheduleDay[] = [
   {
     id: "arrival",
-    dayLabel: "Friday, June 20",
-    date: "June 20",
+    dayLabel: "Friday, June 12",
+    date: "June 12",
     tag: "ARRIVAL DAY",
     events: [
       {
         time: "12:00 – 14:00",
         period: "NOON",
-        title: "Private Boarding",
+        title: "Private Boarding & Check-In",
         description:
-          "Guests are received at the Port of Marseille for a champagne welcome aboard the Corinthian. Our crew awaits.",
+          "Guests arrive at the marina and are welcomed aboard for a relaxed check-in experience as the yacht opens for the weekend ahead.",
       },
       {
-        time: "20:00",
-        period: "EVENING",
-        title: "Dinner at Sea",
+        time: "12:00 – 16:00",
+        period: "AFTERNOON",
+        title: "Welcome Lunch & Cocktails",
         description:
-          "Our first evening together as the Corinthian sets her sails southbound. The Riviera darkens to silhouette around us.",
+          "A leisurely lunch is served on deck alongside signature welcome cocktails, music, and the first moments together at sea.",
+      },
+      {
+        time: "19:00",
+        period: "EVENING",
+        title: "Friday Dinner on Board",
+        description:
+          "As the Riviera begins to glow at sunset, guests gather for an intimate Friday evening dinner aboard the yacht.",
         dressCode: {
-          label: "RIVIERA WHITE",
-          subtitle: "All-white travel attire",
+          label: "WHITE",
           images: [
             "/images/dress-code/friday/white-1.jpg",
             "/images/dress-code/friday/white-2.jpg",
@@ -50,40 +56,32 @@ export const scheduleDays: ScheduleDay[] = [
   },
   {
     id: "main",
-    dayLabel: "Saturday, June 21",
-    date: "June 21",
+    dayLabel: "Saturday, June 13",
+    date: "June 13",
     tag: "THE MAIN EVENT",
     events: [
       {
-        time: "09:00",
+        time: "07:00 – 11:00",
         period: "MORNING",
-        title: "Breakfast on Deck",
+        title: "Breakfast at Sea",
         description:
-          "Coffee, croissants, and the open Mediterranean horizon. The day has nowhere to rush.",
+          "A slow Mediterranean morning with breakfast served on deck, fresh coffee, sea air, and views across the Côte d’Azur.",
       },
       {
-        time: "13:00",
+        time: "12:00 – 16:00",
         period: "AFTERNOON",
-        title: "Lunch Aboard",
+        title: "Lunch & water sports on the yacht",
         description:
-          "A long, sun-drenched lunch as we approach Saint-Tropez. The coastline sharpens in the afternoon light.",
+          "Free time to explore Saint-Tropez, enjoy water sports, or unwind aboard with lunch served throughout the afternoon.",
       },
       {
-        time: "16:00",
-        period: "FREE TIME",
-        title: "Free Time in Saint-Tropez",
-        description:
-          "The harbour, the boutiques, the beaches — yours to explore at leisure. Tenders run on request.",
-      },
-      {
-        time: "21:00",
+        time: "19:00",
         period: "EVENING",
-        title: "The Grand Celebration",
+        title: "Departure to Birthday Celebration",
         description:
-          "The heart of our weekend. Dinner, music, dancing under the stars at La Réserve Ramatuelle — the night you came for.",
+          "Guests meet at the yacht library before departing together for Shalom’s birthday celebration at La Réserve à la Plage.",
         dressCode: {
           label: "SAINT-TROPEZ CHIC",
-          subtitle: "Vibrant colour, Mediterranean elegance",
           images: [
             "/images/dress-code/saturday/chic-1.jpg",
             "/images/dress-code/saturday/chic-2.jpg",
@@ -97,23 +95,23 @@ export const scheduleDays: ScheduleDay[] = [
   },
   {
     id: "farewell",
-    dayLabel: "Sunday, June 22",
-    date: "June 22",
+    dayLabel: "Sunday, June 14",
+    date: "June 14",
     tag: "FAREWELL",
     events: [
       {
-        time: "10:00",
+        time: "07:00 – 11:00",
         period: "MORNING",
         title: "A Slow Morning",
         description:
-          "Late breakfast on deck. Sea breeze. No schedule. Savour the last hours on the water.",
+          "Late breakfast on deck. Sea breeze. No schedule. Savour the final hours drifting along the Riviera waters.",
       },
       {
-        time: "14:00",
-        period: "AFTERNOON",
-        title: "Disembarkation & Farewell",
+        time: "TBD",
+        period: "DEPARTURE",
+        title: "Return Flights",
         description:
-          "Transfers arranged for all guests from port. Until the next horizon.",
+          "Private transfers and departures arranged according to individual flight schedules.",
       },
     ],
   },

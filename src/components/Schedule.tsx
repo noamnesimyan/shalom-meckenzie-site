@@ -96,14 +96,13 @@ export default function Schedule() {
               {day.events.map((event, i) => (
                 <div
                   key={i}
-                  className="py-7 grid grid-cols-[110px_1fr] md:grid-cols-[140px_1fr] gap-6 md:gap-10"
+                  className="py-7 flex flex-col md:grid md:grid-cols-[140px_1fr] gap-3 md:gap-10"
                 >
                   {/* ── Time column ── */}
                   <div className="pt-0.5">
                     {event.time && (
                       <div className="font-display font-normal text-ink text-[clamp(20px,2.5vw,28px)] leading-none">
-                        {/* Show only start time for cleanliness */}
-                        {event.time.split("–")[0].trim()}
+                        {event.time}
                       </div>
                     )}
                     <div className="font-body text-[9px] tracking-[0.22em] uppercase text-ink/35 mt-1.5">
@@ -129,9 +128,11 @@ export default function Schedule() {
                         <span className="font-body text-[9px] tracking-[0.18em] uppercase text-ink/55 font-medium">
                           {event.dressCode.label}
                         </span>
-                        <span className="font-body text-[9px] text-ink/35">
-                          — {event.dressCode.subtitle}
-                        </span>
+                        {event.dressCode.subtitle && (
+                          <span className="font-body text-[9px] text-ink/35">
+                            — {event.dressCode.subtitle}
+                          </span>
+                        )}
                       </div>
                     )}
 

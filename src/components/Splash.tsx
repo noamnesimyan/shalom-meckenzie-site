@@ -24,7 +24,7 @@ export default function Splash() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-[9999] bg-ink flex flex-col items-center justify-center"
+          className="fixed inset-0 z-[9999] bg-[#071732] flex flex-col items-center justify-center"
         >
           {/* Logo */}
           <motion.div
@@ -45,23 +45,7 @@ export default function Splash() {
             </div>
           </motion.div>
 
-          {/* Gold line */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="w-20 h-px bg-gold mt-8 mb-6 origin-center"
-          />
 
-          {/* Name */}
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.2 }}
-            className="font-accent text-ivory/50 text-xs tracking-[0.4em] uppercase"
-          >
-            Shalom Meckenzie · 50
-          </motion.p>
         </motion.div>
       )}
     </AnimatePresence>
