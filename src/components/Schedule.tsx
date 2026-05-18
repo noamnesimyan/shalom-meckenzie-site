@@ -4,8 +4,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { scheduleDays } from "@/content/schedule";
-import Eyebrow from "./Eyebrow";
-import Reveal from "./Reveal";
+
+/* Bright summer image — Orient Express Corinthian exterior, sun-drenched sea */
+const BG =
+  "https://medias.orient-express.com/sites/default/files/styles/w3840/public/mobile/1176x768/Corinthian-Exterior-Caribbean-Luxigon.jpg";
 
 export default function Schedule() {
   const [active, setActive] = useState(0);
@@ -14,134 +16,143 @@ export default function Schedule() {
   return (
     <section
       id="schedule"
-      className="bg-ink py-28 md:py-36 px-6"
+      className="relative min-h-screen flex items-center justify-center py-14 px-6 md:px-14 overflow-hidden"
       aria-labelledby="schedule-heading"
     >
-      <div className="max-w-4xl mx-auto">
-        <Reveal>
-          <div className="text-center mb-14">
-            <Eyebrow>THE WEEKEND PROGRAMME</Eyebrow>
-            <h2
-              id="schedule-heading"
-              className="font-display font-bold text-ivory mt-6 text-[clamp(28px,4vw,44px)] tracking-[-0.01em]"
+      {/* ── Full-bleed background image ── */}
+      <div className="absolute inset-0">
+        <Image
+          src={BG}
+          alt=""
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          aria-hidden="true"
+        />
+        {/* Very light tint to keep image bright but readable behind the card */}
+        <div className="absolute inset-0 bg-[#1a3050]/30" />
+      </div>
+
+      {/* ── White "letter" card — the schedule itself ── */}
+      <div className="relative z-10 w-full max-w-4xl bg-white px-10 md:px-16 py-12 md:py-16 shadow-2xl">
+
+        {/* Heading */}
+        <h2
+          id="schedule-heading"
+          className="font-display font-normal text-ink text-center text-[clamp(28px,4.5vw,44px)] tracking-[-0.015em] mb-10"
+        >
+          Schedule &amp; Attire
+        </h2>
+
+        {/* ── Day selector — 3 equal columns ── */}
+        <div className="grid grid-cols-3 border-b border-ink/12 mb-10">
+          {scheduleDays.map((d, i) => (
+            <button
+              key={d.id}
+              onClick={() => setActive(i)}
+              className="relative text-center pb-5 group transition-opacity duration-200"
+              aria-selected={active === i}
             >
-              Schedule &amp; Attire
-            </h2>
-          </div>
-        </Reveal>
-
-        {/* Tabs */}
-        <Reveal delay={0.1}>
-          <div className="flex justify-center mb-12 border-b border-ivory/10">
-            {scheduleDays.map((d, i) => (
-              <button
-                key={d.id}
-                onClick={() => setActive(i)}
-                className="relative px-6 md:px-10 pb-4 text-center group"
-                aria-selected={active === i}
+              {/* Small uppercase label */}
+              <div
+                className={`font-body text-[9px] tracking-[0.22em] uppercase mb-1.5 transition-colors duration-200 ${
+                  active === i ? "text-ink/55" : "text-ink/25 group-hover:text-ink/40"
+                }`}
               >
-                <div
-                  className={`font-body text-[9px] font-medium tracking-[0.2em] uppercase mb-1 transition-colors duration-300 ${
-                    active === i ? "text-gold" : "text-ivory/40 group-hover:text-ivory/60"
-                  }`}
-                >
-                  {d.tag}
-                </div>
-                <div
-                  className={`font-display text-sm md:text-base transition-colors duration-300 ${
-                    active === i ? "text-ivory" : "text-ivory/40 group-hover:text-ivory/70"
-                  }`}
-                >
-                  {d.date}
-                </div>
-                {active === i && (
-                  <motion.div
-                    layoutId="tab-underline"
-                    className="absolute bottom-0 left-0 right-0 h-px bg-gold"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
-                )}
-              </button>
-            ))}
-          </div>
-        </Reveal>
+                {d.tag}
+              </div>
 
-        {/* Events */}
+              {/* Date in display serif — "june 20" style */}
+              <div
+                className={`font-display font-normal text-[clamp(16px,2.5vw,26px)] transition-colors duration-200 ${
+                  active === i ? "text-ink" : "text-ink/25 group-hover:text-ink/45"
+                }`}
+              >
+                {d.date}
+              </div>
+
+              {/* Active underline */}
+              {active === i && (
+                <motion.div
+                  layoutId="sched-underline"
+                  className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-ink"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* ── Events list ── */}
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
           >
-            <div className="space-y-0 divide-y divide-ivory/8">
+            <div className="divide-y divide-ink/8">
               {day.events.map((event, i) => (
                 <div
                   key={i}
-                  className="py-8 grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-8"
+                  className="py-7 grid grid-cols-[110px_1fr] md:grid-cols-[140px_1fr] gap-6 md:gap-10"
                 >
-                  {/* Time col */}
-                  <div className="flex flex-row md:flex-col gap-3 md:gap-1">
+                  {/* ── Time column ── */}
+                  <div className="pt-0.5">
                     {event.time && (
-                      <div className="font-body text-gold text-sm font-medium">
-                        {event.time}
+                      <div className="font-display font-normal text-ink text-[clamp(20px,2.5vw,28px)] leading-none">
+                        {/* Show only start time for cleanliness */}
+                        {event.time.split("–")[0].trim()}
                       </div>
                     )}
-                    <div className="font-body text-[9px] tracking-[0.2em] uppercase text-ivory/35">
+                    <div className="font-body text-[9px] tracking-[0.22em] uppercase text-ink/35 mt-1.5">
                       {event.period}
                     </div>
                   </div>
 
-                  {/* Content col */}
+                  {/* ── Event content ── */}
                   <div>
-                    <h3 className="font-display font-bold text-ivory text-xl mb-2">
+                    <h3 className="font-display font-normal text-ink text-2xl mb-1.5 leading-tight">
                       {event.title}
                     </h3>
-                    <p className="font-body text-ivory/60 text-sm leading-relaxed mb-4">
+                    <p className="font-accent italic text-ink/70 text-lg leading-relaxed">
                       {event.description}
                     </p>
-                    {event.dressCode && (
-                      <div>
-                        <div className="inline-flex items-center gap-3 border border-gold/30 px-4 py-2 bg-gold/5 mb-4">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                            <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/>
-                          </svg>
-                          <div>
-                            <div className="font-body text-[9px] tracking-[0.2em] uppercase text-gold font-medium">
-                              {event.dressCode.label}
-                            </div>
-                            <div className="font-body text-ivory/50 text-xs">
-                              {event.dressCode.subtitle}
-                            </div>
-                          </div>
-                        </div>
 
-                        {event.dressCode.images && event.dressCode.images.length > 0 && (
-                          <div>
-                            <div className="grid grid-cols-3 gap-2 max-w-xs">
-                              {event.dressCode.images.map((img, idx) => (
-                                <div
-                                  key={idx}
-                                  className="relative aspect-[3/4] overflow-hidden group"
-                                >
-                                  <Image
-                                    src={img}
-                                    alt={`${event.dressCode!.label} inspiration ${idx + 1}`}
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 640px) 33vw, 120px"
-                                    loading="lazy"
-                                  />
-                                  <div className="absolute inset-0 border border-gold/0 group-hover:border-gold/60 transition-colors duration-300 pointer-events-none" />
-                                </div>
-                              ))}
-                            </div>
-                            <p className="font-body text-[9px] tracking-[0.2em] uppercase text-ivory/30 mt-2">
-                              Dress inspiration
-                            </p>
+                    {/* Dress code — inline, subtle */}
+                    {event.dressCode && (
+                      <div className="mt-3 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                        <span className="font-body text-[8px] tracking-[0.22em] uppercase text-ink/35">
+                          Dress
+                        </span>
+                        <span className="font-body text-[9px] tracking-[0.18em] uppercase text-ink/55 font-medium">
+                          {event.dressCode.label}
+                        </span>
+                        <span className="font-body text-[9px] text-ink/35">
+                          — {event.dressCode.subtitle}
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Dress code inspiration images */}
+                    {event.dressCode?.images && event.dressCode.images.length > 0 && (
+                      <div className="mt-4 flex flex-wrap gap-3">
+                        {event.dressCode.images.map((img, idx) => (
+                          <div
+                            key={idx}
+                            className="relative w-32 h-40 overflow-hidden flex-shrink-0"
+                          >
+                            <Image
+                              src={img}
+                              alt={`${event.dressCode!.label} inspiration ${idx + 1}`}
+                              fill
+                              className="object-cover"
+                              sizes="128px"
+                              loading="lazy"
+                            />
                           </div>
-                        )}
+                        ))}
                       </div>
                     )}
                   </div>

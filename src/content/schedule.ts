@@ -27,14 +27,6 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Private Boarding",
         description:
           "Guests are received at the Port of Marseille for a champagne welcome aboard the Corinthian. Our crew awaits.",
-        dressCode: {
-          label: "RIVIERA WHITE",
-          subtitle: "All-white travel attire",
-          images: [
-            "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
-            "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80",
-          ],
-        },
       },
       {
         time: "20:00",
@@ -42,6 +34,17 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Dinner at Sea",
         description:
           "Our first evening together as the Corinthian sets her sails southbound. The Riviera darkens to silhouette around us.",
+        dressCode: {
+          label: "RIVIERA WHITE",
+          subtitle: "All-white travel attire",
+          images: [
+            "/images/dress-code/friday/white-1.jpg",
+            "/images/dress-code/friday/white-2.jpg",
+            "/images/dress-code/friday/white-3.jpg",
+            "/images/dress-code/friday/white-4.jpg",
+            "/images/dress-code/friday/white-5.jpg",
+          ],
+        },
       },
     ],
   },
@@ -82,9 +85,11 @@ export const scheduleDays: ScheduleDay[] = [
           label: "SAINT-TROPEZ CHIC",
           subtitle: "Vibrant colour, Mediterranean elegance",
           images: [
-            "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
-            "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80",
-            "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600&q=80",
+            "/images/dress-code/saturday/chic-1.jpg",
+            "/images/dress-code/saturday/chic-2.jpg",
+            "/images/dress-code/saturday/chic-3.jpg",
+            "/images/dress-code/saturday/chic-4.jpg",
+            "/images/dress-code/saturday/chic-5.jpg",
           ],
         },
       },

@@ -32,10 +32,10 @@ function PlaceCard({ place, index }: { place: Place; index: number }) {
           <div className="font-body text-[9px] font-medium tracking-[0.2em] uppercase text-gold/80">
             {place.tag}
           </div>
-          <h4 className="font-display font-bold text-ink text-lg leading-tight">
+          <h4 className="font-display font-normal text-ink text-2xl leading-tight">
             {place.name}
           </h4>
-          <p className="font-body text-ink/60 text-sm leading-relaxed flex-1">
+          <p className="font-accent italic text-ink/70 text-lg leading-relaxed flex-1">
             {place.description}
           </p>
 
@@ -49,8 +49,8 @@ function PlaceCard({ place, index }: { place: Place; index: number }) {
               aria-label={`View ${place.name} on Google Maps`}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-                <circle cx="12" cy="9" r="2.5"/>
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                <circle cx="12" cy="9" r="2.5" />
               </svg>
               Maps
             </a>
@@ -63,9 +63,9 @@ function PlaceCard({ place, index }: { place: Place; index: number }) {
                 aria-label={`Visit ${place.name} website`}
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <line x1="2" y1="12" x2="22" y2="12"/>
-                  <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
                 </svg>
                 Website
               </a>
@@ -95,14 +95,14 @@ export default function Explore() {
       <div className="max-w-6xl mx-auto">
         <Reveal>
           <div className="text-center mb-6">
-            <Eyebrow light>À LA CARTE</Eyebrow>
+            <Eyebrow light>EXPLORE</Eyebrow>
             <h2
               id="explore-heading"
-              className="font-display font-bold text-ink mt-6 text-[clamp(28px,4vw,44px)] tracking-[-0.01em]"
+              className="font-display font-normal text-ink mt-6 text-[clamp(28px,4.5vw,44px)] tracking-[-0.01em]"
             >
               The Best of Saint-Tropez
             </h2>
-            <p className="font-body text-ink/55 text-base mt-4 max-w-xl mx-auto leading-relaxed">
+            <p className="font-accent italic text-ink/70 text-xl md:text-2xl mt-6 max-w-2xl mx-auto leading-relaxed">
               Should you wish to wander, a curated shortlist of the Riviera&rsquo;s
               most beloved tables and shores.
             </p>
@@ -120,11 +120,10 @@ export default function Explore() {
                 aria-selected={active === tab.id}
               >
                 <span
-                  className={`font-body text-[11px] font-medium tracking-[0.2em] uppercase transition-colors duration-300 ${
-                    active === tab.id
+                  className={`font-body text-[11px] font-medium tracking-[0.2em] uppercase transition-colors duration-300 ${active === tab.id
                       ? "text-ink"
                       : "text-ink/40 group-hover:text-ink/70"
-                  }`}
+                    }`}
                 >
                   {tab.label}
                 </span>

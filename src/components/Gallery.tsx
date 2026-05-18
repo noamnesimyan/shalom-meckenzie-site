@@ -6,28 +6,24 @@ import Image from "next/image";
 
 const slides = [
   {
-    src: "https://medias.orient-express.com/sites/default/files/styles/w3840/public/mobile/2250x2160/orientexpress-sailingyachts-corinthian-front-yachtl.jpg",
-    caption: "ORIENT EXPRESS CORINTHIAN · AT SEA",
+    src: "/images/carousel/carousel-1.jpg",
+    caption: "SUITE SALON · OCEAN VIEW",
   },
   {
-    src: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1920&q=85",
-    caption: "SAINT-TROPEZ HARBOUR",
+    src: "/images/carousel/carousel-2.jpg",
+    caption: "THE CORINTHIAN · MAIN DECK",
   },
   {
-    src: "https://medias.orient-express.com/sites/default/files/styles/w3840/public/mobile/2250x2160/OE_YACHTPAGE_3776x2168_03_0.jpg",
-    caption: "THE CORINTHIAN · CÔTE D'AZUR",
+    src: "/images/carousel/carousel-3.jpg",
+    caption: "MARINA PLATFORM · ADRIATIC COVE",
   },
   {
-    src: "https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=1920&q=85",
-    caption: "PAMPELONNE BEACH · SAINT-TROPEZ",
+    src: "/images/carousel/carousel-4.jpg",
+    caption: "THE CORINTHIAN · SALON DINING",
   },
   {
-    src: "https://medias.orient-express.com/sites/default/files/styles/w3840/public/mobile/2250x2160/OE_YACHTPAGE_3776x2168_05.jpg",
-    caption: "ON DECK · GOLDEN HOUR",
-  },
-  {
-    src: "https://medias.orient-express.com/sites/default/files/styles/w3840/public/desktop/1440x1908/Capri-Amalfi%20Coast-Stills%20%281%29_0.webp",
-    caption: "CÔTE D'AZUR · AMALFI COAST",
+    src: "/images/carousel/carousel-5.jpg",
+    caption: "PRESIDENTIAL SUITE · SUNRISE OVER THE RIVIERA",
   },
 ];
 
@@ -60,7 +56,7 @@ export default function Gallery() {
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={current}
-          className="absolute inset-0"
+          className="absolute inset-0 flex items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -74,7 +70,17 @@ export default function Gallery() {
             priority={current === 0}
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-ink/15" />
+          <div className="absolute inset-0 bg-ink/20" />
+
+          {/* Centered white logo with screen blending */}
+          <div className="relative z-10 w-48 h-48 md:w-48 md:h-48 select-none pointer-events-none opacity-80 mix-blend-screen">
+            <Image
+              src="/images/orient-express-logo.png"
+              alt="Orient Express Logo"
+              fill
+              className="object-contain"
+            />
+          </div>
         </motion.div>
       </AnimatePresence>
 
@@ -120,11 +126,10 @@ export default function Gallery() {
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`rounded-full transition-all duration-300 ${
-              i === current
-                ? "w-6 h-[3px] bg-ivory"
-                : "w-[6px] h-[6px] bg-ivory/35 hover:bg-ivory/65"
-            }`}
+            className={`rounded-full transition-all duration-300 ${i === current
+              ? "w-6 h-[3px] bg-ivory"
+              : "w-[6px] h-[6px] bg-ivory/35 hover:bg-ivory/65"
+              }`}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
