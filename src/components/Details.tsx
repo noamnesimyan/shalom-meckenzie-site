@@ -1,73 +1,47 @@
 import React from "react";
-import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
-
-const ICON_COLOR = "#000d1b";
 
 const details = [
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={ICON_COLOR} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="3" y="4" width="18" height="18" rx="2" />
-        <line x1="16" y1="2" x2="16" y2="6" />
-        <line x1="8" y1="2" x2="8" y2="6" />
-        <line x1="3" y1="10" x2="21" y2="10" />
-      </svg>
-    ),
+    icon: <img src="/clock.svg" alt="clock" style={{ height: 40, width: "auto" }} />,
     label: "WHEN",
-    primary: "Friday 20 – Sunday 22 June",
-    secondary: "2026",
+    primary: "20-22 June 2026",
+    secondary: "friday - sunday",
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={ICON_COLOR} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-        <circle cx="12" cy="9" r="2.5"/>
-      </svg>
-    ),
+    icon: <img src="/compass.svg" alt="compass" style={{ height: 40, width: "auto" }} />,
     label: "WHERE",
-    primary: "Port of Marseille → Saint-Tropez",
-    secondary: "French Riviera, France",
+    primary: "French Riviera",
+    secondary: "marseille > saint tropez",
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={ICON_COLOR} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 012.12 2.18 2 2 0 014.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
-      </svg>
-    ),
+    icon: <img src="/passport.svg" alt="passport" style={{ height: 40, width: "auto" }} />,
     label: "NEAREST AIRPORT",
-    primary: "Marseille Provence (MRS)",
-    secondary: "~30 minutes by car to port",
+    primary: "Marseille Provence",
+    secondary: "MRS · 30 min to port",
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={ICON_COLOR} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 2a14.5 14.5 0 000 20M2 12h20"/>
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10"/>
-        <path d="M12 22C6.48 22 2 17.52 2 12"/>
-      </svg>
-    ),
-    label: "GETTING THERE",
-    primary: "Private chauffeur from MRS",
-    secondary: "Valet parking at port",
+    icon: <img src="/lighthouse.svg" alt="lighthouse" style={{ height: 40, width: "auto" }} />,
+    label: "MEETING POINT",
+    primary: "Marseille Port",
+    secondary: "Friday, June 20 · 12:00",
   },
 ];
 
-const stripeStyle: React.CSSProperties = {
-  backgroundColor: "#ffffff",
+/* Classic vertical nautical stripe — navy / sky / white */
+const nautiStripe: React.CSSProperties = {
   backgroundImage: `repeating-linear-gradient(
     to right,
-    transparent 0px,
-    transparent 30px,
-    rgba(176, 210, 232, 0.42) 30px,
-    rgba(176, 210, 232, 0.42) 34px,
-    rgba(190, 220, 238, 0.28) 34px,
-    rgba(190, 220, 238, 0.28) 44px,
-    rgba(176, 210, 232, 0.42) 44px,
-    rgba(176, 210, 232, 0.42) 48px,
-    transparent 48px,
-    transparent 78px
+    #1B3A5C 0px,
+    #1B3A5C 20px,
+    #A8D8EA 20px,
+    #A8D8EA 24px,
+    #ffffff 24px,
+    #ffffff 72px,
+    #A8D8EA 72px,
+    #A8D8EA 76px,
+    #1B3A5C 76px,
+    #1B3A5C 96px
   )`,
 };
 
@@ -75,42 +49,73 @@ export default function Details() {
   return (
     <section
       id="details"
-      className="py-28 md:py-36 px-6"
-      style={stripeStyle}
+      className="py-14 md:py-20 px-6 md:px-14"
+      style={nautiStripe}
       aria-labelledby="details-heading"
     >
-      <div className="max-w-6xl mx-auto bg-white border-3 border-ink">
+      {/* ── White card ── */}
+      <div className="max-w-5xl mx-auto bg-white shadow-2xl px-10 md:px-16 py-12 md:py-16">
+
+        {/* Heading */}
         <Reveal>
-          <div className="text-center mb-16">
-            <h2
-              id="details-heading"
-              className="font-display font-bold text-ink mt-6 text-[clamp(28px,4vw,44px)] tracking-[-0.01em]"
-            >
-              An Invitation to the Riviera
-            </h2>
+          <h2
+            id="details-heading"
+            className="font-display font-normal text-ink text-center text-[clamp(28px,4.5vw,44px)] tracking-[-0.015em] mb-12"
+          >
+            An Invitation to the Riviera
+          </h2>
+        </Reveal>
+
+        {/* ── 4 detail columns ── */}
+        <Reveal delay={0.08}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-0">
+            {details.map((d) => (
+              <div key={d.label} className="flex flex-col items-center text-center px-6 py-2 gap-4">
+                {/* Icon */}
+                <div className="opacity-70">
+                  {d.icon}
+                </div>
+
+                {/* Label */}
+                <div className="font-body text-[9px] tracking-[0.28em] uppercase text-ink/40">
+                  {d.label}
+                </div>
+
+                {/* Primary */}
+                <div className="font-display font-normal text-ink text-[clamp(14px,1.6vw,18px)] leading-snug -mt-2">
+                  {d.primary}
+                </div>
+
+                {/* Secondary */}
+                <div className="font-body text-ink/45 text-[11px] tracking-wide -mt-2">
+                  {d.secondary}
+                </div>
+              </div>
+            ))}
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {details.map((d, i) => (
-            <Reveal key={d.label} delay={i * 0.08}>
-              <div className="bg-white/80 backdrop-blur-sm p-6 flex flex-col items-center text-center gap-5 h-full">
-                <div className="w-14 h-14 rounded-full border border-ink/15 flex items-center justify-center flex-shrink-0">
-                  {d.icon}
-                </div>
-                <div>
-                  <div className="font-body text-[10px] font-medium tracking-[0.25em] uppercase text-gold mb-3">
-                    {d.label}
-                  </div>
-                  <div className="font-display font-bold text-ink text-lg leading-snug mb-1">
-                    {d.primary}
-                  </div>
-                  <div className="font-body text-ink/50 text-sm">{d.secondary}</div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        {/* ── Divider ── */}
+        <div className="border-t border-ink/10 my-12" />
+
+        {/* ── Getting here — flight info ── */}
+        <Reveal delay={0.15}>
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="font-body text-[9px] tracking-[0.28em] uppercase text-ink/40 mb-4">
+              GETTING HERE
+            </p>
+            <h3 className="font-display font-normal text-ink text-[clamp(22px,3vw,32px)] tracking-[-0.01em] mb-5 leading-snug">
+              For Your Convenience
+            </h3>
+            <p className="font-accent italic text-ink/70 text-xl md:text-2xl mt-6 max-w-2xl mx-auto leading-relaxed">
+              A private flight from Tel Aviv departs at{" "}
+              <span className="text-ink font-medium not-italic">12:00 on Friday, June 20</span>.
+              Those who prefer are warmly welcome to meet us directly at the
+              Port of Marseille.
+            </p>
+          </div>
+        </Reveal>
+
       </div>
     </section>
   );

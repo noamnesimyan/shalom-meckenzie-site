@@ -2,16 +2,21 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 
-const itemVariant = {
-  hidden: { opacity: 0, y: 28 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const } },
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
-const containerVariant = {
+const stagger = {
   hidden: {},
-  show:   { transition: { staggerChildren: 0.18, delayChildren: 0.05 } },
+  show: { transition: { staggerChildren: 0.25, delayChildren: 0.1 } },
 };
+
+/* Orient Express Corinthian — bow view at sea */
+const YACHT_IMG =
+  "https://medias.orient-express.com/sites/default/files/styles/w3840/public/mobile/2250x2160/orientexpress-sailingyachts-corinthian-front-yachtl.jpg";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -29,19 +34,17 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
-  // Background shifts down at ~40% of scroll speed — classic parallax depth
-  const bgY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 120]);
-  // Text fades out slightly faster as user scrolls away
-  const textOpacity = useTransform(scrollYProgress, [0, 0.5], reduce ? [1, 1] : [1, 0]);
-  const textY = useTransform(scrollYProgress, [0, 0.5], reduce ? [0, 0] : [0, -40]);
+  const bgY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 100]);
+  const cardOpacity = useTransform(scrollYProgress, [0, 0.45], reduce ? [1, 1] : [1, 0]);
+  const cardY = useTransform(scrollYProgress, [0, 0.45], reduce ? [0, 0] : [0, -30]);
 
   return (
     <section
       ref={ref}
-      className="relative w-full h-dvh min-h-[600px] flex items-center justify-center overflow-hidden"
+      className="relative w-full h-dvh min-h-[680px] flex items-center justify-center overflow-hidden"
       aria-label="Hero"
     >
-      {/* Parallax background container — taller than section to absorb shift */}
+      {/* ── Parallax ocean background ── */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           style={{ y: bgY }}
@@ -49,7 +52,7 @@ export default function Hero() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://medias.orient-express.com/sites/default/files/styles/w3840/public/mobile/2250x2160/orientexpress-sailingyachts-corinthian-front-yachtl.jpg"
+            src={YACHT_IMG}
             alt=""
             aria-hidden="true"
             className={`w-full h-full object-cover ${start ? "ken-burns hero-fade" : "opacity-0"}`}
@@ -57,60 +60,65 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Gradient overlay — strong at top and bottom, clear in centre */}
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/65 via-ink/10 to-ink/85" />
+      {/* Tint overlay — deeper at edges */}
+      <div className="absolute inset-0 bg-[#0f2a45]/40" />
 
-      {/* Content — fades and lifts on scroll */}
+      {/* ── Two floating postcards ── */}
       <motion.div
-        variants={containerVariant}
+        variants={stagger}
         initial="hidden"
         animate={start ? "show" : "hidden"}
-        style={{ opacity: textOpacity, y: textY }}
-        className="relative z-10 text-center px-6 max-w-4xl mx-auto"
+        style={{ opacity: cardOpacity, y: cardY }}
+        className="relative z-10 px-6 w-full max-w-[900px] mx-auto"
       >
-        {/* Eyebrow */}
-        <motion.p
-          variants={itemVariant}
-          className="font-accent italic text-ivory/65 text-lg md:text-xl mb-6 tracking-wide"
+        {/* Desktop: positioned layout. Mobile: stacked. */}
+        <div className="relative flex flex-col items-center md:block" style={{ minHeight: 520 }}>
+        {/* Card A: The invitation postcard */}
+        <motion.div
+          variants={fadeUp}
+          className={`relative shadow-2xl w-full max-w-[420px] md:max-w-[460px] md:absolute md:left-0 md:top-0 z-20 ${reduce ? "" : "float-a"}`}
         >
-          With great joy, you are invited to celebrate
-        </motion.p>
+          <div className="relative aspect-[1024/725] w-full overflow-hidden">
+            <Image
+              src="/images/hero/postcard-invitation.png"
+              alt="Save the Date - You are Invited to Shalom Meckenzie's 50th celebrations"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </motion.div>
 
-        {/* Name */}
-        <motion.h1
-          variants={itemVariant}
-          className="font-display font-bold text-ivory leading-none tracking-[-0.02em] text-[clamp(52px,10vw,112px)] mb-3"
+        {/* Card B: The Yacht postcard */}
+        <motion.div
+          variants={fadeUp}
+          className={`relative shadow-2xl w-full max-w-[340px] md:max-w-[360px] mt-6 md:mt-0 md:absolute md:right-0 md:top-[60px] z-10 ${reduce ? "" : "float-b"}`}
         >
-          Shalom Meckenzie
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.h2
-          variants={itemVariant}
-          className="font-display italic font-normal text-ivory/80 text-[clamp(22px,4vw,44px)] mb-8"
-        >
-          A Golden Jubilee at Sea
-        </motion.h2>
-
-        {/* Date */}
-        <motion.p
-          variants={itemVariant}
-          className="font-body text-[11px] md:text-xs font-medium tracking-[0.3em] uppercase text-ivory/55"
-        >
-          20 — 22 June 2026 · Marseille → Saint-Tropez
-        </motion.p>
+          <div className="relative aspect-[725/1024] w-full overflow-hidden">
+            <Image
+              src="/images/hero/postcard-yacht.png"
+              alt="Shalom Meckenzie 50th Celebration"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </motion.div>
+        </div>
       </motion.div>
 
-      {/* Scroll cue — only mount after splash hands off */}
-      {start && <motion.div
-        style={{ opacity: textOpacity }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <span className="font-body text-[9px] tracking-[0.3em] uppercase text-ivory/35">
-          scroll
-        </span>
-        <div className="w-px h-8 bg-ivory/25 scroll-bounce" />
-      </motion.div>}
+      {/* Scroll cue */}
+      {start && (
+        <motion.div
+          style={{ opacity: cardOpacity }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+        >
+          <span className="font-body text-[9px] tracking-[0.3em] uppercase text-ivory/35">
+            scroll
+          </span>
+          <div className="w-px h-8 bg-ivory/25 scroll-bounce" />
+        </motion.div>
+      )}
     </section>
   );
 }

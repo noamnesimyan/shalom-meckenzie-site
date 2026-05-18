@@ -12,20 +12,14 @@ const movements = [
     title: "Welcome Aboard",
     src: "https://medias.orient-express.com/sites/default/files/styles/w3840/public/mobile/2250x2160/orientexpress-sailingyachts-corinthian-front-yachtl.jpg",
     alt: "Orient Express Corinthian — bow view at sea",
-    text: "At 220 metres, with three carbon-fibre Solid Sails reaching skyward, Corinthian is the world's largest sailing yacht — and, for one weekend, our private domain along the Côte d'Azur.",
+    text: "Sailing along the French Riviera, this extraordinary vessel becomes our private world — where refined design meets the rhythm of the open sea.",
   },
   {
     num: "02",
-    title: "Timeless Escape",
+    title: "Crafted for the Sea",
     src: "https://medias.orient-express.com/sites/default/files/styles/w3840/public/mobile/1176x768/Corinthian-Exterior-Caribbean-Luxigon.jpg",
     alt: "Corinthian — sun-drenched exterior at sea",
-    text: "Fifty-four suites. One hundred and ten guests. Decks designed for long lunches under linen umbrellas and even longer evenings beneath a Mediterranean sky.",
-  },
-  {
-    num: "03",
-    src: "https://medias.orient-express.com/sites/default/files/styles/w3840/public/mobile/2250x2160/OE_YACHTPAGE_3776x2168_03_0.jpg",
-    alt: "Corinthian — restaurant terrace at sea",
-    text: "From sun-drenched mornings to mirror-still midnight crossings, every hour aboard is composed with the quiet confidence of a brand that has been redefining luxury travel for nearly 140 years.",
+    text: "From sun-drenched decks overlooking the Mediterranean to intimate evenings under an open sky — every moment on board is crafted to feel effortless, immersive, and unforgettable.",
   },
 ];
 
@@ -52,17 +46,17 @@ export default function Yacht() {
         {/* Header */}
         <Reveal>
           <div className="text-center mb-20 md:mb-28">
-            <Eyebrow light>THE LEGENDARY VESSEL</Eyebrow>
+            <Eyebrow light>THE LEGENDARY YACHT</Eyebrow>
             <h2
               id="yacht-heading"
-              className="font-display font-bold text-ink mt-6 text-[clamp(28px,4vw,36px)] tracking-[-0.01em]"
+              className="font-display font-normal text-ink mt-6 text-[clamp(28px,4.5vw,44px)] tracking-[-0.01em]"
             >
               Orient Express Corinthian
             </h2>
-            <p className="font-accent italic text-ink/55 text-xl md:text-2xl mt-6 max-w-2xl mx-auto leading-relaxed">
-              A modern interpretation of timeless elegance — born of the Orient Express
-              heritage, reimagined for the sea.
-            </p>
+            <div className="font-accent italic text-ink/70 text-xl md:text-2xl mt-6 max-w-3xl mx-auto leading-relaxed space-y-4">
+              <p>At the heart of the experience — the legendary Orient Express Yacht.</p>
+              <p>A modern interpretation of timeless elegance, inspired by the heritage of the iconic Orient Express — where every detail is an act of intention.</p>
+            </div>
           </div>
         </Reveal>
 
@@ -82,7 +76,7 @@ export default function Yacht() {
           <div className="lg:col-span-5 relative">
             <div className="">
               {/* <Eyebrow light>{movements[0].num}</Eyebrow> */}
-              <h3 className="font-display font-bold text-ink mt-6 text-[clamp(28px,4vw,36px)] tracking-[-0.01em]">
+              <h3 className="font-display font-normal text-ink mt-6 text-2xl tracking-[-0.01em]">
                 {movements[0].title}
               </h3>
             </div>
@@ -93,7 +87,7 @@ export default function Yacht() {
               01
             </span>
             <Reveal delay={0.1}>
-              <p className="font-body text-ink/65 text-base md:text-lg leading-relaxed relative z-10">
+              <p className="font-accent italic text-ink/70 text-lg leading-relaxed relative z-10">
                 {movements[0].text}
               </p>
             </Reveal>
@@ -105,7 +99,7 @@ export default function Yacht() {
           <div className="lg:col-span-5 relative order-2 lg:order-1">
             <div className="">
               {/* <Eyebrow light>{movements[0].num}</Eyebrow> */}
-              <h3 className="font-display font-bold text-ink mt-6 text-[clamp(28px,4vw,36px)] tracking-[-0.01em]">
+              <h3 className="font-display font-normal text-ink mt-6 text-2xl tracking-[-0.01em]">
                 {movements[1].title}
               </h3>
             </div>
@@ -116,7 +110,7 @@ export default function Yacht() {
               02
             </span>
             <Reveal delay={0.1}>
-              <p className="font-body text-ink/65 text-base md:text-lg leading-relaxed relative z-10">
+              <p className="font-accent italic text-ink/70 text-lg leading-relaxed relative z-10">
                 {movements[1].text}
               </p>
             </Reveal>
@@ -134,31 +128,7 @@ export default function Yacht() {
           </motion.div>
         </div>
 
-        {/* Movement 03 — full-width photo with text overlay */}
-        <div className="relative">
-          <span
-            aria-hidden="true"
-            className="absolute top-4 right-4 md:top-8 md:right-8 font-display font-bold text-[100px] md:text-[160px] leading-none text-ivory/25 select-none pointer-events-none z-10"
-          >
-            03
-          </span>
-          <Reveal>
-            <div className="relative aspect-[16/9] md:aspect-[16/7] overflow-hidden">
-              <Image
-                src={movements[2].src}
-                alt={movements[2].alt}
-                fill
-                className="object-cover"
-                sizes="100vw"
-              />
-            </div>
-          </Reveal>
-          <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 bg-ivory/95 backdrop-blur-sm p-6 md:p-8 max-w-xs md:max-w-sm z-10">
-            <p className="font-body text-ink/70 text-sm md:text-base leading-relaxed">
-              {movements[2].text}
-            </p>
-          </div>
-        </div>
+
       </div>
     </section>
   );
