@@ -90,7 +90,7 @@ export default function Yacht() {
               01
             </span>
             <Reveal delay={0.1}>
-              <p className="font-accent italic text-ink/70 text-lg leading-relaxed relative z-10">
+              <p className="font-accent italic text-ink/70 text-xl md:text-2xl leading-relaxed relative z-10">
                 {movements[0].text}
               </p>
             </Reveal>
@@ -113,7 +113,7 @@ export default function Yacht() {
               02
             </span>
             <Reveal delay={0.1}>
-              <p className="font-accent italic text-ink/70 text-lg leading-relaxed relative z-10">
+              <p className="font-accent italic text-ink/70 text-xl md:text-2xl leading-relaxed relative z-10">
                 {movements[1].text}
               </p>
             </Reveal>

@@ -24,7 +24,7 @@ const details = [
   {
     icon: <img src="/lighthouse.svg" alt="lighthouse" style={{ height: 40, width: "auto" }} />,
     label: "MEETING POINT",
-    primary: "Marseille Port",
+    primary: "Old Port of Marseille",
     secondary: "Friday, June 12 · 12:00",
   },
 ];
@@ -112,10 +112,12 @@ export default function Details() {
               For Your Convenience
             </h3>
             <p className="font-accent italic text-ink/70 text-xl md:text-2xl mt-6 max-w-2xl mx-auto leading-relaxed">
-              A private flight from Tel Aviv departs at{" "}
-              <span className="text-ink font-medium not-italic">12:00 on Friday, June 12</span>.
-              Those who prefer are warmly welcome to meet us directly at the
-              Port of Marseille.
+              We look forward to beginning the weekend together at Tel Aviv Airport at{" "}
+              <span className="text-ink font-medium not-italic">06:00 on Friday, June 12</span>,
+              before our private flight departs.
+              <br />
+              <br />
+              Guests who prefer are, of course, welcome to meet us directly at the old Port of Marseille.
             </p>
           </div>
         </Reveal>

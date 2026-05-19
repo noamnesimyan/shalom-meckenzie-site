@@ -61,6 +61,9 @@ export default function Footer() {
           <p className="font-body text-[9px] tracking-wider text-white/12">
             Produced by Sky Production
           </p>
+          <p className="font-body text-[9px] tracking-wider text-white/12 mt-1">
+            Developed and designed with love by Welcome RSVP
+          </p>
         </div>
 
       </div>
