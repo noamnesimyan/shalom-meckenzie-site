@@ -31,11 +31,10 @@ export default function Nav() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
             ? "bg-ink/40 backdrop-blur-xl border-b border-white/10"
             : "bg-transparent"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
           {/* Logo */}
@@ -95,7 +94,7 @@ export default function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-ink/97 flex flex-col items-center justify-center gap-8 md:hidden"
+            className="fixed inset-0 z-40 bg-[#040B30]/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-8 md:hidden"
           >
             {links.map((link, i) => (
               <motion.button
@@ -104,7 +103,7 @@ export default function Nav() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.06 }}
                 onClick={() => handleNavClick(link.href)}
-                className="font-display text-2xl text-ivory/90 tracking-widest uppercase hover:text-gold transition-colors"
+                className="font-display text-4xl text-ivory/90 capitalize hover:text-white transition-colors"
               >
                 {link.label}
               </motion.button>
