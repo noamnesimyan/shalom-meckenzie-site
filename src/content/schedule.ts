@@ -107,6 +107,13 @@ export const scheduleDays: ScheduleDay[] = [
           "Late breakfast on deck. Sea breeze. No schedule. Savour the final hours drifting along the Riviera waters.",
       },
       {
+        time: "13:00",
+        period: "AFTERNOON",
+        title: "Checkout and goodbye",
+        description:
+          "Arrival to Villefranche-sur-Mer (20 min boat + 40 min drive to Nice Airport).",
+      },
+      {
         time: "TBD",
         period: "DEPARTURE",
         title: "Return Flights",
