@@ -23,6 +23,9 @@ const movements = [
   },
 ];
 
+
+
+
 export default function Yacht() {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();

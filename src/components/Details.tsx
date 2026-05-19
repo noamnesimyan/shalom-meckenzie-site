@@ -1,11 +1,12 @@
 import React from "react";
 import Reveal from "./Reveal";
+import Eyebrow from "./Eyebrow";
 
 const details = [
   {
     icon: <img src="/clock.svg" alt="clock" style={{ height: 40, width: "auto" }} />,
     label: "WHEN",
-    primary: "20-22 June 2026",
+    primary: "12-14 June 2026",
     secondary: "friday - sunday",
   },
   {
@@ -24,7 +25,7 @@ const details = [
     icon: <img src="/lighthouse.svg" alt="lighthouse" style={{ height: 40, width: "auto" }} />,
     label: "MEETING POINT",
     primary: "Marseille Port",
-    secondary: "Friday, June 20 · 12:00",
+    secondary: "Friday, June 12 · 12:00",
   },
 ];
 
@@ -58,6 +59,9 @@ export default function Details() {
 
         {/* Heading */}
         <Reveal>
+          <div className="mb-4">
+            <Eyebrow light>THE DETAILS</Eyebrow>
+          </div>
           <h2
             id="details-heading"
             className="font-display font-normal text-ink text-center text-[clamp(28px,4.5vw,44px)] tracking-[-0.015em] mb-12"
@@ -70,7 +74,7 @@ export default function Details() {
         <Reveal delay={0.08}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-0">
             {details.map((d) => (
-              <div key={d.label} className="flex flex-col items-center text-center px-6 py-2 gap-4">
+              <div key={d.label} className="flex flex-col items-center text-center px-4 py-2 gap-4">
                 {/* Icon */}
                 <div className="opacity-70">
                   {d.icon}
@@ -109,7 +113,7 @@ export default function Details() {
             </h3>
             <p className="font-accent italic text-ink/70 text-xl md:text-2xl mt-6 max-w-2xl mx-auto leading-relaxed">
               A private flight from Tel Aviv departs at{" "}
-              <span className="text-ink font-medium not-italic">12:00 on Friday, June 20</span>.
+              <span className="text-ink font-medium not-italic">12:00 on Friday, June 12</span>.
               Those who prefer are warmly welcome to meet us directly at the
               Port of Marseille.
             </p>

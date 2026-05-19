@@ -46,7 +46,7 @@ export default function Welcome() {
         <Reveal delay={0.3}>
           <div className="mt-16 flex items-center justify-center gap-0 divide-x divide-ink/15">
             {stats.map((s) => (
-              <div key={s.label} className="px-10 md:px-16 text-center">
+              <div key={s.label} className="px-4 md:px-16 text-center">
                 <div className="font-display font-bold text-[clamp(36px,6vw,64px)] text-ink leading-none tracking-tight">
                   {s.value}
                 </div>
