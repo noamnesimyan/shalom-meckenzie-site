@@ -1,5 +1,6 @@
 import React from "react";
 import Reveal from "./Reveal";
+import Eyebrow from "./Eyebrow";
 
 const details = [
   {
@@ -58,6 +59,9 @@ export default function Details() {
 
         {/* Heading */}
         <Reveal>
+          <div className="mb-4">
+            <Eyebrow light>THE DETAILS</Eyebrow>
+          </div>
           <h2
             id="details-heading"
             className="font-display font-normal text-ink text-center text-[clamp(28px,4.5vw,44px)] tracking-[-0.015em] mb-12"

@@ -6,23 +6,23 @@ import Image from "next/image";
 
 const slides = [
   {
-    src: "/images/carousel/carousel-1.jpg",
+    src: "/images/carousel/carousel-1.png",
     caption: "SUITE SALON · OCEAN VIEW",
   },
   {
-    src: "/images/carousel/carousel-2.jpg",
+    src: "/images/carousel/carousel-2.png",
     caption: "THE CORINTHIAN · MAIN DECK",
   },
   {
-    src: "/images/carousel/carousel-3.jpg",
+    src: "/images/carousel/carousel-3.png",
     caption: "MARINA PLATFORM · ADRIATIC COVE",
   },
   {
-    src: "/images/carousel/carousel-4.jpg",
+    src: "/images/carousel/carousel-4.png",
     caption: "THE CORINTHIAN · SALON DINING",
   },
   {
-    src: "/images/carousel/carousel-5.jpg",
+    src: "/images/carousel/carousel-5.png",
     caption: "PRESIDENTIAL SUITE · SUNRISE OVER THE RIVIERA",
   },
 ];
@@ -72,15 +72,7 @@ export default function Gallery() {
           />
           <div className="absolute inset-0 bg-ink/20" />
 
-          {/* Centered white logo with screen blending */}
-          <div className="relative z-10 w-48 h-48 md:w-48 md:h-48 select-none pointer-events-none opacity-80 mix-blend-screen">
-            <Image
-              src="/images/orient-express-logo.png"
-              alt="Orient Express Logo"
-              fill
-              className="object-contain"
-            />
-          </div>
+
         </motion.div>
       </AnimatePresence>
 

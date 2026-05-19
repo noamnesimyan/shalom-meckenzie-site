@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { scheduleDays } from "@/content/schedule";
+import Eyebrow from "./Eyebrow";
 
 /* Bright summer image — Orient Express Corinthian exterior, sun-drenched sea */
 const BG =
@@ -37,6 +38,9 @@ export default function Schedule() {
       <div className="relative z-10 w-full max-w-4xl bg-white px-10 md:px-16 py-12 md:py-16 shadow-2xl">
 
         {/* Heading */}
+        <div className="mb-4">
+          <Eyebrow light>WEEKEND EVENTS</Eyebrow>
+        </div>
         <h2
           id="schedule-heading"
           className="font-display font-normal text-ink text-center text-[clamp(28px,4.5vw,44px)] tracking-[-0.015em] mb-10"
