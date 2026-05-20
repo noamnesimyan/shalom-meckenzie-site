@@ -112,7 +112,7 @@ export const scheduleDays: ScheduleDay[] = [
           "At Villefranche-sur-Mer (20 min boat + 40 min drive to Nice Airport).",
       },
       {
-        time: "TBD",
+        time: "15:00",
         period: "DEPARTURE",
         title: "Return Flights",
         description:
