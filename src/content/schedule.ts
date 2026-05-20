@@ -48,7 +48,6 @@ export const scheduleDays: ScheduleDay[] = [
             "/images/dress-code/friday/white-2.jpg",
             "/images/dress-code/friday/white-3.jpg",
             "/images/dress-code/friday/white-4.jpg",
-            "/images/dress-code/friday/white-5.jpg",
           ],
         },
       },
@@ -65,7 +64,7 @@ export const scheduleDays: ScheduleDay[] = [
         period: "MORNING",
         title: "Breakfast at Sea",
         description:
-          "A slow Mediterranean morning with breakfast served on deck, fresh coffee, sea air, and views across the Côte d’Azur.",
+          "A slow morning with breakfast served on deck, fresh coffee, sea air, and views across the Côte d’Azur.",
       },
       {
         time: "12:00 – 16:00",
@@ -81,13 +80,12 @@ export const scheduleDays: ScheduleDay[] = [
         description:
           "Guests meet at the yacht library before departing together for Shalom’s birthday celebration at La Réserve à la Plage.",
         dressCode: {
-          label: "SAINT-TROPEZ CHIC",
+          label: "COLORFUL SAINT-TROPEZ CHIC",
           images: [
             "/images/dress-code/saturday/chic-1.jpg",
             "/images/dress-code/saturday/chic-2.jpg",
             "/images/dress-code/saturday/chic-3.jpg",
             "/images/dress-code/saturday/chic-4.jpg",
-            "/images/dress-code/saturday/chic-5.jpg",
           ],
         },
       },
@@ -111,7 +109,7 @@ export const scheduleDays: ScheduleDay[] = [
         period: "AFTERNOON",
         title: "Checkout and goodbye",
         description:
-          "Arrival to Villefranche-sur-Mer (20 min boat + 40 min drive to Nice Airport).",
+          "At Villefranche-sur-Mer (20 min boat + 40 min drive to Nice Airport).",
       },
       {
         time: "TBD",
