@@ -116,7 +116,7 @@ export const scheduleDays: ScheduleDay[] = [
         period: "DEPARTURE",
         title: "Return Flight to TLV",
         description:
-          "Private transfers and departures arranged according to individual flight schedules.",
+          "A private return flight to Tel Aviv departs at 15:00. Guests who prefer are, of course, welcome to arrange individual departures according to their flight schedules.",
       },
     ],
   },
