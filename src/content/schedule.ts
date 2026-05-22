@@ -26,7 +26,7 @@ export const scheduleDays: ScheduleDay[] = [
         period: "NOON",
         title: "Private Boarding & Check-In",
         description:
-          "Guests arrive at the marina and are welcomed aboard for a relaxed check-in experience as the yacht opens for the weekend ahead.",
+          "Guests arrive at the old port of marseille and are welcomed aboard for a relaxed check-in experience as the yacht opens for the weekend ahead.",
       },
       {
         time: "12:00 – 16:00",
@@ -114,9 +114,9 @@ export const scheduleDays: ScheduleDay[] = [
       {
         time: "15:00",
         period: "DEPARTURE",
-        title: "Return Flights",
+        title: "Return Flights to TLV",
         description:
-          "Private transfers and departures arranged according to individual flight schedules.",
+          "A private return flight to Tel Aviv departs at 15:00. Guests who prefer are, of course, welcome to arrange individual departures according to their flight schedules.",
       },
     ],
   },
