@@ -114,7 +114,7 @@ export const scheduleDays: ScheduleDay[] = [
       {
         time: "15:00",
         period: "DEPARTURE",
-        title: "Return Flights",
+        title: "Return Flight to TLV",
         description:
           "Private transfers and departures arranged according to individual flight schedules.",
       },
