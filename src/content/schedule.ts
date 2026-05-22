@@ -26,7 +26,7 @@ export const scheduleDays: ScheduleDay[] = [
         period: "NOON",
         title: "Private Boarding & Check-In",
         description:
-          "Guests arrive at the marina and are welcomed aboard for a relaxed check-in experience as the yacht opens for the weekend ahead.",
+          "Guests arrive at the old port of Marseille and are welcomed aboard for a relaxed check-in experience as the yacht opens for the weekend ahead.",
       },
       {
         time: "12:00 – 16:00",
