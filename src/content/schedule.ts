@@ -78,7 +78,7 @@ export const scheduleDays: ScheduleDay[] = [
         period: "EVENING",
         title: "Departure to Birthday Celebration",
         description:
-          "Guests meet at the yacht library before departing together for Shalom’s birthday celebration at La Réserve à la Plage.",
+          "Guests meet at the yacht library before departing together for Shalom’s birthday celebration at the golf club Saint Tropez.",
         dressCode: {
           label: "COLORFUL SAINT-TROPEZ CHIC",
           images: [
