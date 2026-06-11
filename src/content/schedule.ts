@@ -105,18 +105,18 @@ export const scheduleDays: ScheduleDay[] = [
           "Late breakfast on deck. Sea breeze. No schedule. Savour the final hours drifting along the Riviera waters.",
       },
       {
-        time: "13:00",
+        time: "14:00",
         period: "AFTERNOON",
         title: "Checkout and goodbye",
         description:
           "At Villefranche-sur-Mer (20 min boat + 40 min drive to Nice Airport).",
       },
       {
-        time: "15:00",
+        time: "17:30",
         period: "DEPARTURE",
         title: "Return Flights to TLV",
         description:
-          "A private return flight to Tel Aviv departs at 15:00. Guests who prefer are, of course, welcome to arrange individual departures according to their flight schedules.",
+          "A private return flight to Tel Aviv departs at 17:30. Guests who prefer are, of course, welcome to arrange individual departures according to their flight schedules.",
       },
     ],
   },
